@@ -1361,7 +1361,7 @@ void MainWindow::promptAutoConfig()
     m_AppConfig->setAutoConfigPrompted(true);
 }
 
-void MainWindow::on_m_pComboServerList_currentIndexChanged(QString )
+void MainWindow::on_m_pComboServerList_currentIndexChanged(int _)
 {
     if (m_pComboServerList->count() != 0) {
         restart_cmd_app();
