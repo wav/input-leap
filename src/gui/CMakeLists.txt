@@ -229,6 +229,9 @@ endif()
 if (BUILD_XWINDOWS)
     target_link_libraries (input-leap dns_sd X11 Threads::Threads)
 endif()
+if (BUILD_LIBEI)
+    target_link_libraries (input-leap dns_sd Threads::Threads)
+endif()
 
 target_link_libraries (input-leap common)
 

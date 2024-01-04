@@ -162,7 +162,9 @@ if (UNIX)
             pkg_check_modules(LIBXKBCOMMON REQUIRED xkbcommon)
             pkg_check_modules(GLIB2 REQUIRED glib-2.0 gio-2.0)
             pkg_check_modules(LIBPORTAL REQUIRED libportal)
-            include_directories(${LIBEI_INCLUDE_DIRS} ${LIBXKBCOMMON_INCLUDE_DIRS} ${GLIB2_INCLUDE_DIRS} ${LIBPORTAL_INCLUDE_DIRS})
+            # <X11/keysym.h>
+            pkg_check_modules(XORGPROTO REQUIRED xproto)
+            include_directories(${LIBEI_INCLUDE_DIRS} ${LIBXKBCOMMON_INCLUDE_DIRS} ${GLIB2_INCLUDE_DIRS} ${LIBPORTAL_INCLUDE_DIRS} ${XORGPROTO_INCLUDE_DIRS})
             list(APPEND libs ${LIBEI_LINK_LIBRARIES} ${LIBXKBCOMMON_LINK_LIBRARIES} ${GLIB2_LINK_LIBRARIES} ${LIBPORTAL_LINK_LIBRARIES})
 
             # no libportal release has xdp_session_connect_to_eis, so let's check for that

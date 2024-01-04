@@ -23,6 +23,7 @@
 #include "platform/XWindowsKeyState.h"
 #include "platform/XWindowsScreenSaver.h"
 #include "platform/XWindowsUtil.h"
+#include "platform/XKBUtil.h"
 #include "inputleap/Clipboard.h"
 #include "inputleap/KeyMap.h"
 #include "inputleap/XScreen.h"
@@ -1821,7 +1822,7 @@ XWindowsScreen::mapKeyFromX(XKeyEvent* event) const
 	LOG((CLOG_DEBUG2 "mapped code=%d to keysym=0x%04x", event->keycode, keysym));
 
 	// convert key
-	KeyID result = XWindowsUtil::mapKeySymToKeyID(keysym);
+	KeyID result = XKBUtil::mapKeySymToKeyID(keysym);
 	LOG((CLOG_DEBUG2 "mapped keysym=0x%04x to keyID=%d", keysym, result));
 	return result;
 }
